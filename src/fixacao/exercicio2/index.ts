@@ -11,7 +11,15 @@ Tendo isso em mente, faça o que se pede:
   b. Faça a tipagem da função.
 */
 
-const posts = [
+
+//1
+type Post = {
+  autor: string,
+  texto: string
+}
+
+//2
+const posts:Post[] = [
   {
     autor: 'Alvo Dumbledore',
     texto: 'Não vale a pena viver sonhando e se esquecer de viver'
@@ -34,10 +42,11 @@ const posts = [
   }
 ]
 
-function buscarPostsPorAutor(posts, autorInformado) {
+function buscarPostsPorAutor(posts:Post[], autorInformado:string | undefined): Post[] {
   return posts.filter(
     (post) => {
       return post.autor === autorInformado
     }
   )
 }
+console.table(buscarPostsPorAutor(posts, "Dobby"))
